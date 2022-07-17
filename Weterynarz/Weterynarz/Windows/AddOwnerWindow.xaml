@@ -1,0 +1,70 @@
+﻿<Window x:Class="Weterynarz.Windows.AddOwnerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Weterynarz.Windows"
+        mc:Ignorable="d"
+        Title="Nowy właściciel" Height="300" Width="400" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <Grid Grid.Column="0" Grid.Row="1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="0" Grid.Row="0"
+                               Content="Imię właściciela:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TextBox Grid.Column="1" Grid.Row="0"
+                                 x:Name="TbxOwnerName" VerticalAlignment="Center" Margin="0 0 5 0"/>
+        <Label Grid.Column="0" Grid.Row="1"
+                               Content="Nazwisko właściciela:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TextBox Grid.Column="1" Grid.Row="1"
+                                 x:Name="TbxOwnerSurname" VerticalAlignment="Center" Margin="0 0 5 0"/>
+        <Label Grid.Column="0" Grid.Row="2"
+                               Content="Numer telefonu:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TextBox Grid.Column="1" Grid.Row="2"
+                                 x:Name="TbxOwnerPhoneNumber" VerticalAlignment="Center" Margin="0 0 5 0"/>
+
+        <Label Grid.Column="0" Grid.Row="3"
+                               Content="Imię zwierzątka:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TextBox Grid.Column="1" Grid.Row="3"
+                                 x:Name="TbxAnimalName" VerticalAlignment="Center" Margin="0 0 5 0"/>
+        <Label Grid.Column="0" Grid.Row="4"
+                               Content="Płeć zwierzątka:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <ComboBox Grid.Column="1" Grid.Row="4"
+                                  x:Name="CbxAnimalGender" VerticalAlignment="Center" Margin="0 0 5 0">
+            <ComboBox.Items>
+                <ComboBoxItem Content="Samiec"/>
+                <ComboBoxItem Content="Samica"/>
+            </ComboBox.Items>
+        </ComboBox>
+        <Label Grid.Column="0" Grid.Row="5"
+                               Content="Data urodzenia zwierzątka:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <DatePicker Grid.Column="1" Grid.Row="5"
+                                    x:Name="DtpcrAnimalBirthDate" VerticalAlignment="Center" Margin="0 0 5 0"/>
+
+        <Label Grid.Column="0" Grid.Row="6"
+                               Content="Gatunek zwierzątka:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TextBox Grid.Column="1" Grid.Row="6"
+                                 x:Name="TbxAnimalSpecie" VerticalAlignment="Center" Margin="0 0 5 0"/>
+        <Label Grid.Column="0" Grid.Row="7"
+                               Content="Rasa zwierzątka:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TextBox Grid.Column="1" Grid.Row="7"
+                                 x:Name="TbxAnimalRace" VerticalAlignment="Center" Margin="0 0 5 0"/>
+
+        <Button Grid.Column="1" Grid.Row="8"
+                                x:Name="BtnAddNewOwner" Content="Dodaj" Width="60" Margin="0 0 5 0" VerticalAlignment="Center" HorizontalAlignment="Right"
+                                Click="BtnAddNewOwner_Click"/>
+    </Grid>
+</Window>

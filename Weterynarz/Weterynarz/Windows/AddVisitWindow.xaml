@@ -1,0 +1,66 @@
+﻿<Window x:Class="Weterynarz.Windows.AddVisitWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Weterynarz.Windows"
+        mc:Ignorable="d"
+        Title="Nowa wizyta" Height="230" Width="400" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <Grid Grid.Column="0" Grid.Row="1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="0" Grid.Row="0"
+                               Content="Data wizyty:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <DatePicker Grid.Column="1" Grid.Row="0"
+                                    x:Name="DtpcrDate" VerticalAlignment="Center" Margin="0 0 5 0"/>        
+        
+        <Label Grid.Column="0" Grid.Row="1"
+                               Content="Czas trwania w minutach:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TextBox Grid.Column="1" Grid.Row="1"
+                                 x:Name="TbxTime" VerticalAlignment="Center" Margin="0 0 5 0"/>
+        
+        <Label Grid.Column="0" Grid.Row="2"
+                               Content="Cena:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TextBox Grid.Column="1" Grid.Row="2"
+                                 x:Name="TbxPrice" VerticalAlignment="Center" Margin="0 0 5 0"/>
+
+        <Label Grid.Column="0" Grid.Row="3"
+                               Content="Właściciel:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <ComboBox Grid.Column="1" Grid.Row="3"
+                                  x:Name="CbxOwner" VerticalAlignment="Center" Margin="0 0 5 0"
+                                  DisplayMemberPath="Name"
+                                  SelectedValuePath="Name"
+                                  SelectedValue="{Binding Path=Name}"
+                                  SelectionChanged="CbxOwner_SelectionChanged"/>
+
+        <Label Grid.Column="0" Grid.Row="4"
+                               Content="Imię zwierzątka:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TextBox Grid.Column="1" Grid.Row="4"
+                                 x:Name="TbxAnimalName" VerticalAlignment="Center" Margin="0 0 5 0" IsReadOnly="True"/>
+
+        <Label Grid.Column="0" Grid.Row="5"
+                               Content="Dolegliwość:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <ComboBox Grid.Column="1" Grid.Row="5"
+                                  x:Name="CbxDisorder" VerticalAlignment="Center" Margin="0 0 5 0"
+                                  DisplayMemberPath="Name"
+                                  SelectedValuePath="Name"
+                                  SelectedValue="{Binding Path=Name}"/>
+
+        <Button Grid.Column="1" Grid.Row="6"
+                                x:Name="BtnAddNewVisit" Content="Dodaj" Width="60" Margin="0 0 5 0" VerticalAlignment="Center" HorizontalAlignment="Right"
+                                Click="BtnAddNewVisit_Click"/>
+    </Grid>
+</Window>

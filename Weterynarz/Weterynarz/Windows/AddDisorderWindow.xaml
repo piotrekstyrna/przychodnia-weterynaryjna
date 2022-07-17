@@ -1,0 +1,38 @@
+﻿<Window x:Class="Weterynarz.Windows.AddDisorderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Weterynarz.Windows"
+        mc:Ignorable="d"
+        Title="Nowa dolegliwość" Height="150" Width="300" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <Grid Grid.Column="0" Grid.Row="1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="0" Grid.Row="0"
+                               Content="Nazwa:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TextBox Grid.Column="1" Grid.Row="0"
+                                 x:Name="TbxName" VerticalAlignment="Center" Margin="0 0 5 0"/>
+        <Label Grid.Column="0" Grid.Row="1"
+                               Content="Czy uleczalna" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <CheckBox Grid.Column="1" Grid.Row="1"
+                                 x:Name="CkbxIsHealable" VerticalAlignment="Center" Margin="0 0 5 0"/>
+        <Label Grid.Column="0" Grid.Row="2"
+                               Content="Lek:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TextBox Grid.Column="1" Grid.Row="2"
+                                 x:Name="TbxMedicine" VerticalAlignment="Center" Margin="0 0 5 0"/>
+
+        <Button Grid.Column="1" Grid.Row="3"
+                                x:Name="BtnAddNewDisorder" Content="Dodaj" Width="60" Margin="0 0 5 0" VerticalAlignment="Center" HorizontalAlignment="Right"
+                                Click="BtnAddNewDisorder_Click"/>
+    </Grid>
+</Window>

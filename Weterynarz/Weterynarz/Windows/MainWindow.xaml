@@ -1,0 +1,123 @@
+﻿<Window x:Class="Weterynarz.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Weterynarz"
+        mc:Ignorable="d"
+        Title="Weterynarz" Height="550" Width="1200" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Właściciele">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    
+                    <DataGrid Grid.Column="0" Grid.Row="0"
+                              x:Name="DGOwners"
+                              AutoGenerateColumns="False"
+                              IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="3*" Header="Imię" Binding="{Binding Name}" />
+                            <DataGridTextColumn Width="3*" Header="Nazwisko" Binding="{Binding Surname}" />
+                            <DataGridTextColumn Width="3*" Header="Numer telefonu" Binding="{Binding PhoneNumber}" />
+                            <DataGridTextColumn Width="3*" Header="Zwierzątko" Binding="{Binding Animal.Name}" />
+                            <DataGridTextColumn Width="3*" Header="Płeć" Binding="{Binding Animal.Gender}" />
+                            <DataGridTextColumn Width="3*" Header="Narodziny" Binding="{Binding Animal.BirthDate, StringFormat=\{0:dd.MM.yyyy\}}" />
+                            <DataGridTextColumn Width="3*" Header="Gatunek" Binding="{Binding Animal.Specie}" />
+                            <DataGridTextColumn Width="3*" Header="Rasa" Binding="{Binding Animal.Race}" />
+                            <DataGridTemplateColumn Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Click="BtnDeleteOwner_Click">Usuń</Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <Button Grid.Column="0" Grid.Row="1"
+                            x:Name="BtnAddNewOwner" Content="Dodaj właściciela" Width="130" Height="25" Margin="5 5 5 5" VerticalAlignment="Center" HorizontalAlignment="Right"
+                            Click="BtnAddNewOwner_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Dolegliwości">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <DataGrid Grid.Column="0" Grid.Row="0"
+                              x:Name="DGDisorders"
+                              AutoGenerateColumns="False"
+                              IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="6*" Header="Nazwa" Binding="{Binding Name}" />
+                            <DataGridCheckBoxColumn Width="6*" Header="Czy uleczalna" Binding="{Binding IsHealable}" />
+                            <DataGridTextColumn Width="6*" Header="Lek" Binding="{Binding Medicine}" />
+                            <DataGridTemplateColumn Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Click="BtnDeleteDisorder_Click">Usuń</Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <Button Grid.Column="0" Grid.Row="1"
+                            x:Name="BtnAddNewDisorder" Content="Dodaj dolegliwość" Width="130" Height="25" Margin="5 5 5 5" VerticalAlignment="Center" HorizontalAlignment="Right"
+                            Click="BtnAddNewDisorder_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Wizyty">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <DataGrid Grid.Column="0" Grid.Row="0"
+                              x:Name="DGVisits"
+                              AutoGenerateColumns="False"
+                              IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="*" Header="Data" Binding="{Binding Date, StringFormat=\{0:dd.MM.yyyy\}}" />
+                            <DataGridTextColumn Width="*" Header="Czas trwania" Binding="{Binding TimeDescription}" />
+                            <DataGridTextColumn Width="*" Header="Cena" Binding="{Binding Price}" />
+                            <DataGridTextColumn Width="*" Header="Właściciel" Binding="{Binding Owner.Name}" />
+                            <DataGridTextColumn Width="*" Header="Zwierzątko" Binding="{Binding Owner.Animal.Name}" />
+                            <DataGridTextColumn Width="*" Header="Zwierzątko" Binding="{Binding Disorder.Name}" />
+                            <DataGridTemplateColumn Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Click="BtnDeleteVisit_Click">Usuń</Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <Button Grid.Column="0" Grid.Row="1"
+                            x:Name="BtnAddNewVisit" Content="Dodaj wizytę" Width="130" Height="25" Margin="5 5 5 5" VerticalAlignment="Center" HorizontalAlignment="Right"
+                            Click="BtnAddNewVisit_Click"/>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
